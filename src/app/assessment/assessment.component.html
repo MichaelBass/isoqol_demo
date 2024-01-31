@@ -1,0 +1,36 @@
+<div class="container-fluid">
+
+
+<div *ngIf="FormOID==''" class="shadow-lg p-5 mb-3 bg-body-tertiary rounded" style="width: 100%;">
+	<div class="labels"> Click 'START' below to begin the assessment </div>
+	<div>
+		<ul class="maps">
+		<li  (click)="onBegin()" >
+			 <p [ngStyle]= "{'color': '.bg-transparent' ? '#370578' : 'F0EDF2'}" > START </p>
+		</li>
+		</ul>
+	</div>
+</div>	
+
+	<div *ngIf="formItem!">
+	<div *ngIf="formItem.Items[0]" class="shadow-lg p-5 mb-3 bg-body-tertiary rounded" style="width: 100%;">
+	<div *ngFor="let element of formItem.Items[0].Elements">
+		<div class="labels" *ngIf="element.Map == null" [innerHTML]="element.Description"></div>
+		
+		<div *ngIf="element.Map">
+			<ul class="maps">
+			<li *ngFor="let map of element.Map"
+			  [class.selected]="map === selectedMap"
+			  (click)="onSelect(map)" >
+			 	<p [ngStyle]= "{'color': '.bg-transparent' ? '#370578' : 'F0EDF2'}" >{{map!.Description}}</p>
+			</li>
+			</ul>
+		</div>
+		
+	</div>
+	<p>
+	</p>
+	</div>
+	</div>
+
+</div>

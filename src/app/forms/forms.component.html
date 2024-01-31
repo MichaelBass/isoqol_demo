@@ -1,0 +1,81 @@
+<div class="container-fluid">
+
+<div class="form-group shadow-lg p-1 mb-1 bg-body-tertiary" style="display: flex;">
+
+<div class="form-group shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 30%; flex: 1;" *ngIf="cats!">
+
+<label for="">Screening criteria questions </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-secondary btn-sm" (click)="clearCriteria()">Reset screening criteria(s)</button>
+<div class="overflow" >
+<app-screener #ScreenerComponent ></app-screener>
+</div>
+
+<!--
+  <label for="lstCATS">CATS</label>
+  <select #lstCATS class="form-control" id="lstCATS" (change)="onSelected(lstCATS.value)">
+    <option *ngFor="let form of cats" value="{{form!.OID}}" >{{form!.Name}}</option>
+  </select>
+-->
+</div>
+
+
+<!-- 
+<div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 30%;flex: 1;">
+
+ 
+<div class="input-group mb-3">
+  <label for="threshold-count" class="form-label">How many responses do you want to evaluate for the screening threshold? </label>
+  <div class="input-group">
+  <input type="text" class="form-control" placeholder="response threshold count" id="threshold-count" aria-label="response threshold count" >
+  </div>
+</div>
+
+<div class="input-group mb-3"> 
+  <label for="basic-url" class="form-label">Which direction should be considered when evaluating screening? </label>
+</div>
+
+<div class="input-group mb-3">   
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    <label class="form-check-label" for="flexRadioDefault1">
+       &nbsp;&nbsp;Higher is better
+    </label>
+</div>
+
+<div class="input-group mb-3"> 
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+    <label class="form-check-label" for="flexRadioDefault2">
+       &nbsp;&nbsp;Lower is better
+    </label>
+</div>
+
+</div>
+-->
+
+<div class="form-group shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 50%; flex: 1;">
+<label>Patient's scheduled questionnaires</label>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-secondary btn-sm" (click)="clearQuestionnaire()">Reset scheduled questionnaires</button>
+  <div *ngFor="let questionnaire of patient_list" [ngStyle]= "{'color': questionnaire.Active ? 'red' : 'black'}"> {{questionnaire.Description}}  {{questionnaire.Theta}} {{questionnaire.StdError}}</div>
+</div>
+</div>
+
+<!--
+<div *ngIf="psers!">
+  <label for="lstPSER">PSER CATS</label> : <select class="form-control" id="lstPSER">
+    <option *ngFor="let form of psers" >{{form!.Name}}</option>
+  </select>	
+</div>
+
+<div *ngIf="screens!">
+  <label for="lstSCREEN">SCREEN CATS</label> : <select class="form-control" id="lstSCREEN">
+    <option *ngFor="let form of screens">{{form!.Name}}</option>
+  </select>			
+</div>
+-->
+<app-assessment [FormOID]="FormOID" (emitter)="send($event)"></app-assessment>
+
+<input mdbCheckbox class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [checked]="displayDeveloper" (click)="toggleDeveloper()"  />
+<label class="form-check-label" for="flexCheckDefault"> Show API requests:</label>
+<div  [ngStyle]= "{'visibility': displayDeveloper ? 'visible' : 'hidden'}">
+  <app-developer [FormOID]="FormOID" [count]="count"></app-developer>
+</div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container-fluid">
+
+	<!--  This is where the criteria is displayed -->
+<div *ngIf="screeningItems!" class="form-group shadow-lg p-1 mb-1 bg-body-tertiary" style="width: 100%;" >
+<div *ngFor="let item of screeningItems">
+    <div class="labels">{{item.ID}}</div>
+
+<div *ngFor="let element of item.Elements">
+  <div class="labels" *ngIf="element.Map == null" [innerHTML]="element.Description"></div>
+
+    <div *ngIf="element.Map">
+      <ul class="maps">
+      <!--<li *ngFor="let map of element.Map" [class.selected]="map === selectedMap" (click)="onSelect(item.ID, map)">-->
+       <li *ngFor="let map of element.Map" [class.selected]="map!.Criteria" (click)="onSelect(item.ID, map)"> 
+        <p [ngStyle]= "{'color': map!.Criteria ? '#370578' : 'F0EDF2'}" >{{map!.Description}}</p>
+      </li>
+      </ul>
+    </div>
+
+<div>
+<div>
+<div>
+<!--  This is where the criteria is displayed -->
+</div>

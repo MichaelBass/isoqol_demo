@@ -1,0 +1,47 @@
+.maps {
+  /*margin: 0 0 2em 0;*/
+  list-style-type: none;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  width: 500px;
+}
+
+.maps li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  font-weight: normal;
+  margin: .3em;
+  padding: .3em 0;
+  text-align: center;
+  font-size: 20px;
+}
+
+.labels{
+
+  width: 100%;
+  /*text-align: center;*/
+  font-size: 24px;
+  padding: 2px 2px 2px 2px;
+
+}
+
+div label{
+  /*text-align: center;*/
+  font-size: 24px;
+  padding: 2px 2px 2px 2px;
+
+}
+
+.maps li:hover {
+  background-color: #B0B0B0;
+  font-weight: bold;
+  /* color: #607D8B; */
+  /* background-color: #DDD; */
+}
+
+.selected {
+  background-color: #CFD8DC !important;
+}
