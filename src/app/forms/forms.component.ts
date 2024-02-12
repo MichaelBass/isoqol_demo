@@ -59,8 +59,6 @@ export class FormsComponent implements OnInit {
   }
 
 
-
-
   onSelected(value:string): void {
     this.FormOID = value;
   }

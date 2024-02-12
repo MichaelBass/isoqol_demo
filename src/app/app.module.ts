@@ -7,7 +7,7 @@ import { FormsComponent } from './forms/forms.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { DeveloperComponent } from './developer/developer.component';
 import { ScreenerComponent } from './screener/screener.component';
-
+import { HomeOverlayComponent } from './home-overlay/home-overlay.component';
 import { AcApiService } from './ac-api.service';
 
 @NgModule({
@@ -16,7 +16,8 @@ import { AcApiService } from './ac-api.service';
     FormsComponent,
     AssessmentComponent,
     DeveloperComponent,
-    ScreenerComponent
+    ScreenerComponent,
+    HomeOverlayComponent
   ],
   imports: [
     BrowserModule,
